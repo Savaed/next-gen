@@ -7,7 +7,7 @@ name = "pypi"
 numpy = "*"
 fastapi = "*"
 uvicorn = "*"
-
+mongoengine = "*"
 
 [dev-packages]
 isort = "*"
