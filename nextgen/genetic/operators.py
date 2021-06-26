@@ -6,11 +6,12 @@ from nextgen.genetic.helpers import get_random_at_interval, random_unique_int
 from nextgen.genetic.models import BinaryCrossoverType, BinaryMutationType, RealCrossoverType, RealMutationType
 
 
-@abstractmethod
 class GeneticOperators(object):
+    @abstractmethod
     def cross(self, parents: np.ndarray) -> np.ndarray:
         raise NotImplementedError
 
+    @abstractmethod
     def mutate(self, individual: np.ndarray) -> np.ndarray:
         raise NotImplementedError
 
