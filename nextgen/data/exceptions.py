@@ -4,7 +4,13 @@ class NotFoundError(Exception):
     pass
 
 
-class ManyObjectsError(BaseException):
+class ManyObjectsError(Exception):
     """The result of query or filtering a sequency returned many objects but single was expected."""
+
+    pass
+
+
+class DbError(Exception):
+    """Generic MongoDB error. May be related to a malformed query, connection issues etc."""
 
     pass
