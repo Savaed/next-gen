@@ -1,7 +1,6 @@
 from datetime import datetime
 from typing import Any
 
-from bson import ObjectId
 from mongoengine import Document
 from mongoengine.document import EmbeddedDocument
 from mongoengine.fields import (
