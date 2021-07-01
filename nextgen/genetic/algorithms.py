@@ -10,7 +10,7 @@ from nextgen.genetic.models import (
     EvolutionConfig,
     EvolutionHistory,
     EvolutionResult,
-    FunctionConfig,
+    FitnessFunctionConfig,
 )
 from nextgen.genetic.selection import Selection
 
@@ -18,7 +18,7 @@ from nextgen.genetic.selection import Selection
 class EvoAlgorithm(object):
     def __init__(
         self,
-        function_config: FunctionConfig,
+        function_config: FitnessFunctionConfig,
         evolution_config: EvolutionConfig,
         representation: ChromosomeRepresentation,
         precision: int = 6,

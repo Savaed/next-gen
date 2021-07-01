@@ -7,8 +7,8 @@ from typing import Callable, Union
 import numpy as np
 
 
-FunctionConfig = namedtuple(
-    "FunctionConfig", ["arg_min", "arg_max", "x1_for_optimum", "x2_for_optimum", "optimum", "formula"]
+FitnessFunctionConfig = namedtuple(
+    "FitnessFunctionConfig", ["arg_min", "arg_max", "x1_for_optimum", "x2_for_optimum", "optimum", "formula"]
 )
 
 
@@ -98,7 +98,6 @@ class EvolutionResult(object):
     """The result of evolution algorithm.
 
     Contains elapsed time in seconds, history object, best solution and number of generations.
-
     """
 
     def __init__(self, history: EvolutionHistory, elpsed_seconds: float) -> None:
@@ -129,7 +128,7 @@ class SupportedFunction(object):
     def __init__(self) -> None:
         self._functions = dict()
 
-        self._functions[SupportedFunctionName.BOOTH] = FunctionConfig(
+        self._functions[SupportedFunctionName.BOOTH] = FitnessFunctionConfig(
             arg_min=-10.0,
             arg_max=10.0,
             x1_for_optimum=1.0,
@@ -138,7 +137,7 @@ class SupportedFunction(object):
             formula=lambda x: ((x[0] + 2.0 * x[1] - 7) ** 2 + (2.0 ** x[0] + x[1] - 5) ** 2),
         )
 
-        self._functions[SupportedFunctionName.BEALE] = FunctionConfig(
+        self._functions[SupportedFunctionName.BEALE] = FitnessFunctionConfig(
             arg_min=-4.5,
             arg_max=4.5,
             x1_for_optimum=3.0,
@@ -151,7 +150,7 @@ class SupportedFunction(object):
             ),
         )
 
-        self._functions[SupportedFunctionName.DROP_WAVE] = FunctionConfig(
+        self._functions[SupportedFunctionName.DROP_WAVE] = FitnessFunctionConfig(
             arg_min=-5.12,
             arg_max=5.12,
             x1_for_optimum=0.0,
@@ -163,7 +162,7 @@ class SupportedFunction(object):
             ),
         )
 
-        self._functions[SupportedFunctionName.EGGHOLDER] = FunctionConfig(
+        self._functions[SupportedFunctionName.EGGHOLDER] = FitnessFunctionConfig(
             arg_min=-512.0,
             arg_max=512.0,
             x1_for_optimum=512.0,
@@ -175,7 +174,7 @@ class SupportedFunction(object):
             ),
         )
 
-        self._functions[SupportedFunctionName.EASOM] = FunctionConfig(
+        self._functions[SupportedFunctionName.EASOM] = FitnessFunctionConfig(
             arg_min=-100.0,
             arg_max=100.0,
             x1_for_optimum=math.pi,
@@ -186,7 +185,7 @@ class SupportedFunction(object):
             ),
         )
 
-    def get_function(self, name: SupportedFunctionName) -> FunctionConfig:
+    def get_function(self, name: SupportedFunctionName) -> FitnessFunctionConfig:
         """Get supported 2D function based on the name.
 
         Parameters
@@ -216,7 +215,7 @@ class SupportedFunction(object):
         print(f"[{name.name}] Fitness function returned optimum: '{calculated_optimum:0.4f}'")
         print(f"[{name.name}] Fitness function real optimum: '{options.optimum:0.4f}'")
 
-    def _get_function_by_name(self, name: SupportedFunctionName) -> FunctionConfig:
+    def _get_function_by_name(self, name: SupportedFunctionName) -> FitnessFunctionConfig:
         return self._functions[name]
 
 
