@@ -40,8 +40,8 @@ class AuthHandler:
 
     def encode_jwt(self, user: User) -> str:
         now = datetime.now()
-        payload = AccessToken(now + timedelta(hours=8), now, str(user.id), user.username, user.roles)
-        return jwt.encode(asdict(payload), self._jwt_secret)
+        token = AccessToken(now + timedelta(hours=8), now, str(user.id), user.username, user.roles)
+        return jwt.encode(asdict(token), self._jwt_secret)
 
     def decode_jwt(self, token: str) -> dict[str, Any]:
         try:

@@ -2,6 +2,8 @@ import re
 
 
 def custom_collection_name(cls):
+    """Pluralize MongoDB collection name."""
+
     def wrap(cls):
         new_collection_name = re.sub(r"(?<!^)(?=[A-Z])", "_", cls.__name__).lower() + "s"
 

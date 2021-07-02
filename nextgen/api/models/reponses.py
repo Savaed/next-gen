@@ -16,6 +16,17 @@ class ApiResponse(GenericModel, Generic[ResponseT]):
     errors: Optional[list[str]]
     success: bool
 
+    def __init__(__pydantic_self__, data: ResponseT, errors: list[str] = None) -> None:
+        """
+        Wrapper for the API response.
+
+        Use this class to encapsulate models returned from the API.
+            >>> return ApiResponse(data={ "name": "Jon Doe" })
+        """
+
+        data_dict = {"data": data, "errors": errors, "success": not (errors and len(errors) > 0)}
+        super().__init__(**data_dict)
+
     @validator("errors", always=True)
     def check_consistency(cls, value, values):
         if value is not None and values["data"] is not None:

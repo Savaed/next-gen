@@ -8,6 +8,9 @@ numpy = "*"
 fastapi = "*"
 uvicorn = "*"
 mongoengine = "*"
+fastapi-utils = "*"
+jwt = "*"
+passlib = {extras = ["bcrypt"], version = "*"}
 
 [dev-packages]
 isort = "*"

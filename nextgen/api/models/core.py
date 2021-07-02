@@ -1,6 +1,6 @@
 from datetime import datetime
 from functools import partial
-from typing import Any, Optional
+from typing import Optional
 
 from bson import ObjectId
 from bson.errors import InvalidId
@@ -53,7 +53,7 @@ class MongoBaseModel(BaseModel):
         json_encoders = {datetime: lambda dt: dt.isoformat(), ObjectId: lambda oid: str(oid)}
 
     @classmethod
-    def from_mongo(cls, mongo_object: BaseMongoDocument) -> dict[str:Any]:
+    def from_mongo(cls, mongo_object: BaseMongoDocument):
         """Cast MongoDB model to API model. Properly handles '_id' and ObjectId conversions.
 
         Parameters
