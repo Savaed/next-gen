@@ -1,5 +1,5 @@
 <template>
-  <v-container> </v-container>
+  <v-container> {{ $t("common.test") }} </v-container>
 </template>
 
 <script>
