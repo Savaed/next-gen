@@ -52,7 +52,9 @@
       "eslint:recommended",
       "@vue/prettier"
     ],
-    "ignorePatterns": "node_modules",
+    "ignorePatterns": [
+      "node_modules/"
+    ],
     "parserOptions": {
       "parser": "babel-eslint"
     },
